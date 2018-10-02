@@ -1,4 +1,4 @@
-package com.coding.datastructure;
+package com.coding.collections;
 
 import java.util.ArrayList;
 import java.util.List;

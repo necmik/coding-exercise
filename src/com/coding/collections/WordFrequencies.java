@@ -1,4 +1,4 @@
-package com.coding.algorithms;
+package com.coding.collections;
 
 import java.util.HashMap;
 import java.util.Map;

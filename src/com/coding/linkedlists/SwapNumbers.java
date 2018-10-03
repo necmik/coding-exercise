@@ -1,4 +1,4 @@
-package com.coding.collections;
+package com.coding.linkedlists;
 
 /**
  * Write a function to swap numbers without temporary variable.

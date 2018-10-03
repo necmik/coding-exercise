@@ -1,4 +1,4 @@
-package com.coding.collections;
+package com.coding.linkedlists;
 
 import java.util.HashMap;
 import java.util.Map;

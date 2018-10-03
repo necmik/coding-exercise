@@ -1,4 +1,4 @@
-package com.defect.numbertostring;
+package com.coding.stringoperations;
 
 public class StringTest {
 

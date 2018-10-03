@@ -1,22 +1,7 @@
-package com.coding.collections;
+package com.coding.linkedlists;
 
 import java.util.HashSet;
 import java.util.Set;
-
-class LinkedListNode {
-	String data;
-	LinkedListNode next;
-	
-	protected void print() {
-		LinkedListNode node = this;
-		while(node != null) {
-			System.out.print(node.data + " ");
-			node = node.next;
-		}
-		System.out.println();
-	}
-}
-
 
 public class LinkedListRemoveDuplicates {
 	
@@ -36,6 +21,8 @@ public class LinkedListRemoveDuplicates {
 		node.print();
 		removeDuplicates(node);
 		node.print();
+		removeMiddleNode(node);
+		node.print();
 	}
 	
 	private static void removeDuplicates(LinkedListNode node) {
@@ -50,6 +37,14 @@ public class LinkedListRemoveDuplicates {
 			}
 			node = node.next;
 		}
+	}
+	
+	private static boolean removeMiddleNode(LinkedListNode node) {
+		if (node == null || node.next == null) return false;
+		
+		LinkedListNode next = node.next;
+		node.next = next.next;
+		return true;
 	}
 
 }

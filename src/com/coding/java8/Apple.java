@@ -1,11 +1,19 @@
 package com.coding.java8;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Apple {
 	private String color;
 	private int weight;
+	
+	public Apple() {
+		super();
+	}
 	
 	public Apple(String color, int weight) {
 		this.color = color;
@@ -57,10 +65,22 @@ public class Apple {
 			System.out.println(apple.getColor() + ","+ apple.getWeight());
 		}
 		
-		newList = filterApples(list, (a)->a.getWeight() > 160);
+		newList = filterApples(list, (a) -> a.getWeight() > 160);
 		for (Apple apple : newList) {
 			System.out.println(apple.getColor() + ","+ apple.getWeight());
 		}
+		
+		list.sort((Apple a1, Apple a2) -> Integer.valueOf(a1.getWeight()).compareTo(a2.getWeight()));
+		
+		list.sort(Comparator.comparing(Apple::getWeight).reversed().thenComparing(Apple::getColor)); //Method reference
+		
+		Supplier<Apple> c1 = Apple::new;
+		Apple a1 = c1.get();
+		
+		BiFunction<String, Integer, Apple> c3 = Apple::new;
+		Apple a3 = c3.apply("green", 110);
+		
+		
 	}
 	
 }

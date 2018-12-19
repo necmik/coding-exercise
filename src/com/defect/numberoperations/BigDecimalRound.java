@@ -1,4 +1,4 @@
-package com.defect.numbertostring;
+package com.defect.numberoperations;
 
 import java.math.BigDecimal;
 import java.math.MathContext;

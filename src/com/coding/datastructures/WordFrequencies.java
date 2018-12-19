@@ -1,4 +1,4 @@
-package com.coding.linkedlists;
+package com.coding.datastructures;
 
 import java.util.HashMap;
 import java.util.Map;

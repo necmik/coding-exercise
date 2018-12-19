@@ -1,4 +1,4 @@
-package com.coding.linkedlists;
+package com.coding.datastructures;
 
 class LinkedListNode {
 	String data;

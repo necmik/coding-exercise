@@ -1,4 +1,4 @@
-package com.coding.stacksqueues;
+package com.coding.datastructures.stackqueues;
 
 import java.util.Stack;
 

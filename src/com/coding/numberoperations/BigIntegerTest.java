@@ -1,4 +1,4 @@
-package com.defect.numberoperations;
+package com.coding.numberoperations;
 
 import java.math.BigInteger;
 

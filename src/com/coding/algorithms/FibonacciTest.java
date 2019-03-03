@@ -4,7 +4,7 @@ public class FibonacciTest {
 	
 	public static void main(String[] args) {
 		System.out.println(fibonacci(50));
-		//System.out.println(fibonacciWithCache(50, new long[51]));
+		System.out.println(fibonacciWithCache(50, new long[51]));
 	}
 	
 	private static long fibonacci(int n) {

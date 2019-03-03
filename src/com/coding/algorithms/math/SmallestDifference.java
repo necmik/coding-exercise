@@ -1,4 +1,4 @@
-package com.coding.algorithms;
+package com.coding.algorithms.math;
 
 import java.util.Arrays;
 

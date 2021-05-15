@@ -1,21 +1,21 @@
-package com.coding.datastructures;
+package com.coding.datastructures.graphs;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Node {
+class NodeR {
 	String data;
-	List<Node> children = new ArrayList<Node>();
+	List<NodeR> children = new ArrayList<NodeR>();
 	boolean visited = false;
 	
 	void print() {
-		Node root = this;
+		NodeR root = this;
 		print(root);
 	}
 	
-	void print(Node node) {
+	void print(NodeR node) {
 		System.out.println(node.data);
-		for (Node child : node.children) {
+		for (NodeR child : node.children) {
 			if (!child.visited) {
 				print(child);
 				child.visited = true;
@@ -27,38 +27,38 @@ class Node {
 public class GraphRoute {
 	
 	public static void main(String[] args) {
-		Node graph = new Node();
+		NodeR graph = new NodeR();
 		graph.data = "A";
 		
-		Node child1 = new Node();
+		NodeR child1 = new NodeR();
 		child1.data = "B";
 		graph.children.add(child1);
 		
-		Node child2 = new Node();
+		NodeR child2 = new NodeR();
 		child2.data = "C";
 		graph.children.add(child2);
 		
-		Node child3 = new Node();
+		NodeR child3 = new NodeR();
 		child3.data = "D";
 		child1.children.add(child3);
 		
-		Node child4 = new Node();
+		NodeR child4 = new NodeR();
 		child4.data = "E";
 		child4.children.add(graph);
 		
-		Node child5 = new Node();
+		NodeR child5 = new NodeR();
 		child5.data = "F";
 		child5.children.add(child2);
 		
 		System.out.println(haveRoute(graph, child3));
 	}
 	
-	private static boolean haveRoute(Node source, Node dest) {
+	private static boolean haveRoute(NodeR source, NodeR dest) {
 		boolean result = source.data.equals(dest.data);
 		if (result) {
 			return true;
 		} else {
-			for (Node child : source.children) {
+			for (NodeR child : source.children) {
 				if (!child.visited) {
 					child.visited = true;
 				}

@@ -47,13 +47,14 @@ public class PalindromeList{
 	static boolean isPalindrom(LinkedListNode2 node) {
 		if (node == null) return false;
 		LinkedListNode2 reverse = reverseList(node);
+		reverse.print();
 		while(node != null) {
 			if (node.data != reverse.data) return false;
 			
 			node = node.next;
 			reverse = reverse.next;
 		}
-		//reverse.print();
+		
 		return true;
 	}
 	

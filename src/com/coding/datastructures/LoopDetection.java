@@ -3,6 +3,18 @@ package com.coding.datastructures;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 
+ * @author necmikilic
+ *Loop Detection: Given a circular linked list, implement an algorithm that returns the node at the
+beginning of the loop.
+DEFINITION
+Circular linked list: A (corrupt) linked list in which a node's next pointer points to an earlier node, so
+as to make a loop in the linked list.
+EXAMPLE
+Input: A -) B -) C -) 0 -) E - ) C[thesameCasearlierl
+Output: C
+ */
 public class LoopDetection {
 
 	public static void main(String[] args) {
@@ -15,12 +27,18 @@ public class LoopDetection {
 		node2.data = "C";
 		node1.next = node2;
 		LinkedListNode node3 = new LinkedListNode();
-		node3.data = "B";
+		node3.data = "D";
 		node2.next = node3;
 		node3.next = node1;
 
 		//node.print();
-		System.out.println(hasLoop(node));
+		LinkedListNode loop = hasLoop(node);
+		if (loop != null) {
+			System.out.println(hasLoop(node).data);
+		} else {
+			System.out.println("No loop");
+		}
+		
 	}
 
 	static LinkedListNode hasLoop(LinkedListNode node) {

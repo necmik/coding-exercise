@@ -1,34 +1,36 @@
 package com.coding.recursive;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class SubSet {
 	
 	public static void main(String[] args) {
-		Set<Integer> set = new HashSet<Integer>();
-		set.add(1);
-		set.add(3);
-		set.add(6);
-		set.add(7);
-		set.add(8);
-		set.add(9);
-		
-		System.out.println(getSubsets(set));
+		SubSet soa= new SubSet();
+        int[] nums= {1, 2, 1};
+        List<List<Integer>> subsets = soa.subsets(nums);
+ 
+        for (List<Integer> subset: subsets) {
+            System.out.println(subset);
+        }
 	}
 	
-	private static List<Set<Integer>> getSubsets(Set<Integer> source) {
-		List<Set<Integer>> subsets = new ArrayList<Set<Integer>>();
-		
-		while(source.size() > 0) {
-			List<Integer> list = new ArrayList<>(source);
-			Set<Integer> subSet = new HashSet<>(list.subList(0, source.size()-1));
-			subsets.add(subSet);
-			source = subSet;
-		}
-		return subsets;
-	}
+	public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        subsetsHelper(list, new ArrayList<>(), nums, 0);
+        return list;
+    }
+ 
+    private void subsetsHelper(List<List<Integer>> list , List<Integer> resultList, int [] nums, int start){
+        list.add(new ArrayList<>(resultList));
+        for(int i = start; i < nums.length; i++){
+           // add element
+            resultList.add(nums[i]);
+           // Explore
+            subsetsHelper(list, resultList, nums, i + 1);
+           // remove
+            resultList.remove(resultList.size() - 1);
+        }
+    }
 
 }

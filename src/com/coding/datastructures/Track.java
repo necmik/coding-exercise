@@ -1,4 +1,4 @@
-package com.coding.upwork;
+package com.coding.datastructures;
 
 import java.util.Arrays;
 import java.util.HashMap;

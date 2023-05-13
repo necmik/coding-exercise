@@ -1,4 +1,4 @@
-package com.coding.algorithms.strings;
+package com.coding.recursive;
 
 import java.util.Arrays;
 

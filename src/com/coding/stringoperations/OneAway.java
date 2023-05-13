@@ -1,52 +1,38 @@
 package com.coding.stringoperations;
 
+/**
+ * One Away: There are three types of edits that can be performed on strings: insert a character,
+remove a character, or replace a character. Given two strings, write a function to check if they are
+one edit (or zero edits) away.
+ * @author necmikilic
+ *
+ */
 public class OneAway {
 	
-	public static void main(String[] args) {
-		String s1 = "pale";
-		String s2 = "paler";
+	static boolean checkOneWay(String s1, String s2) {
 		
-		System.out.print(isOneAway(s1, s2));
-	}
-	
-	private static boolean isOneAway(String s1, String s2) {
-		if (Math.abs(s1.length()-s2.length()) > 1) return false;
+		if (Math.abs(s1.length() - s2.length()) > 1) return false;		
 		
-		if (s1.length() == s2.length()) return oneReplaceAway(s1, s2);
-		
-		return oneInsertAway(s1, s2);
-	}
-	
-	private static boolean oneReplaceAway(String s1, String s2) {
-		boolean foundDif = false;
-		for (int i=0; i<s1.length(); i++) {
+		for (int i=0; i < s1.length() && i < s2.length(); i++) {
 			if (s1.charAt(i) != s2.charAt(i)) {
-				if (foundDif) return false;
-				foundDif = true;
+				if (s1.length() > s2.length()) {
+					return s1.substring(i+1).equals(s2.substring(i));
+				} else if(s2.length() > s1.length()) {
+					return s1.substring(i).equals(s2.substring(i+1));
+				}
+				return s1.substring(i+1).equals(s2.substring(i+1));
 			}
+			
 		}
 		return true;
 	}
 	
-	private static boolean oneInsertAway(String s1, String s2) {
-		int idx1 = 0;
-		int idx2 = 0;
+	public static void main(String[] args) {
+		String[] sList1 = new String[]{"pale", "pales", "pale", "pale"};
+		String[] sList2 = new String[]{"ple", "pale", "bale", "bake"};
 		
-		boolean foundDif = false;
-		while (idx1 < s1.length() && idx2 < s2.length()) {
-			if (s1.charAt(idx1) != s2.charAt(idx2)) {
-				if (foundDif) return false;
-				if (s1.length() > s2.length()) {
-					idx1++;
-				} else {
-					idx2++;
-				}
-				foundDif = true;
-			}
-			idx1++;
-			idx2++;
+		for (int i =0; i < sList1.length; i++) {
+			System.out.println(checkOneWay(sList1[i], sList2[i]));
 		}
-		return true;
 	}
-
 }
